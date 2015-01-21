@@ -70,10 +70,21 @@ public class Robot extends IterativeRobot {
 		PIDLeft.enable();
 		PIDRight.enable();
 		
+		PIDLeft.getError();
+		PIDRight.getError();
+		
 		PIDLeft.setSetpoint(0);
 		PIDRight.setSetpoint(0);
 		
-		if (ultrasonic.getVoltage() > .22) {
+		if (ultrasonic.getVoltage() > 0.22) {
+			motorLeft.set(.75);
+			motorRight.set(-.75);
+		} else {
+			motorLeft.set(0);
+			motorRight.set(0);
+		}
+		
+		if (encoderLeft.get() < 4*227) {
 			motorLeft.set(.75);
 			motorRight.set(-.75);
 		} else {
