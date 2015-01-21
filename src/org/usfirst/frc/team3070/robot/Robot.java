@@ -84,7 +84,7 @@ public class Robot extends IterativeRobot {
 			motorRight.set(0);
 		}
 		
-		if (encoderLeft.get() < 4*227) {
+		if (encoderLeft.get() < 6*227) {
 			motorLeft.set(.75);
 			motorRight.set(-.75);
 		} else {
